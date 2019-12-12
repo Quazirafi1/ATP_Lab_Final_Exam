@@ -22,6 +22,16 @@
         </tr>
         <tr>
             <td>CONTACT</td>
+            <td>
+                <select name="type">
+                    <option value="2">Scout</option>
+                    <option value="3">General</option>
+                </select>
+            </td>
+            <td>{{$errors->first('type')}}</td>
+        </tr>
+        <tr>
+            <td>CONTACT</td>
             <td><input type="text" name="contact"></td>
             <td>{{$errors->first('contact')}}</td>
         </tr>

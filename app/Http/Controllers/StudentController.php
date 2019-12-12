@@ -85,13 +85,14 @@ class StudentController extends Controller
             'username'=>'required',
             'name'=>'required',
             'password'=>'required',
-            'contact'=>'required'
+            'contact'=>'required',
+            'type'=>'required'
         ]);
 
         $user = new User();
         $user->username = $req->username;
         $user->password = $req->password;
-        $user->type = 2;
+        $user->type = $req->type;
         $user->name = $req->name;
         $user->contact = $req->contact;
 
