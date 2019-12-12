@@ -26,6 +26,11 @@ class GeneralController extends Controller
         return view('general.index1')->with('users', $users);
     }
 
+    function select(HttpRequest $req){
+        $users = DB::table('products')->where('country', $req->search)->get();
+        return view('general.index2')->with('users', $users);
+    }
+
     function edit2(HttpRequest $req, $id){
 
         //find student form array

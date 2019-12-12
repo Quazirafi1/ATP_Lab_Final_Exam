@@ -24,7 +24,7 @@ Route::get('/homepage', 'GeneralController@index');
 
 
 Route::get('/general/all', ['as'=>'general.all','uses'=>'GeneralController@all']);
-
+Route::post('/general/select', ['as'=>'general.select','uses'=>'GeneralController@select']);
 
 Route::get('/general/edit/{id}', 'GeneralController@edit2')->name('general.edit2');
 Route::post('/general/edit/{id}', 'GeneralController@update2')->name('general.update2');
@@ -77,7 +77,7 @@ Route::group(['middleware'=>['ver']],function(){
     Route::get('/student/add', 'StudentController@add')->name('student.add');
     Route::post('/student/add', 'StudentController@insert');
 
-    Route::get('/live_search', 'LiveSearch@index')->name('livesearch.index');;
-    Route::get('/live_search/action', 'LiveSearch@action')->name('live_search.action');
+    //Route::get('/live_search', 'LiveSearch@index')->name('livesearch.index');;
+    //Route::get('/live_search/action', 'LiveSearch@action')->name('live_search.action');
 });
 
