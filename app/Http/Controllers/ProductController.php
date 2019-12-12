@@ -19,12 +19,16 @@ class ProductController extends Controller
         $req->validate([
             'title'=>'required',
             'price'=>'required',
-            'medium'=>'required'
+            'medium'=>'required',
+            'country'=>'required',
+            'history'=>'required'
         ]);
 
         $user = new product();
         $user->title = $req->title;
         $user->medium = $req->medium;
+        $user->country = $req->country;
+        $user->history = $req->history;
         $user->price = $req->price;
         $user->status = 0;
         $user->request = 0;

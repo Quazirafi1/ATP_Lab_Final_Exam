@@ -11,10 +11,22 @@
 <form method="post">
     <table border="1">
         <tr>
-            <td>TITLE</td>
+            <td>TITLE (Name Of The Place)</td>
             <td><input type="text" name="title"></td>
             <td>{{$errors->first('title')}}</td>
-
+        </tr>
+        <tr>
+            <td>COUNTRY</td>
+            <td><input type="text" name="country"></td>
+            <td>{{$errors->first('country')}}</td>
+        </tr>
+        <tr>
+            <td>HISTORY</td>
+            <td>
+                <textarea name="history" rows="8" cols="20">
+                </textarea>
+            </td>
+            <td>{{$errors->first('history')}}</td>
         </tr>
         <tr>
             <td>ESTIMATED COST</td>
