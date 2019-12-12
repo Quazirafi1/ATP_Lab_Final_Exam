@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\product;
 use Illuminate\Support\Facades\DB;
-
 use Illuminate\Http\Request;
+use Validator;
 
 class ProductController extends Controller
 {
@@ -16,10 +16,18 @@ class ProductController extends Controller
 
     function insert(Request $req){
 
+        $req->validate([
+            'title'=>'required',
+            'price'=>'required',
+            'medium'=>'required'
+        ]);
+
         $user = new product();
-        $user->name = $req->name;
-        $user->quantity = $req->quantity;
+        $user->title = $req->title;
+        $user->medium = $req->medium;
         $user->price = $req->price;
+        $user->status = 0;
+        $user->request = 0;
 
         if($user->save()){
             return redirect()->route('product.index');
