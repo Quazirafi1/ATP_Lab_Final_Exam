@@ -54,4 +54,29 @@ class PostController extends Controller
 
         return redirect()->route('post.index');
     }
+
+    function approve($id){
+
+        //find student form array
+        $user = product::find($id);
+        //$std = ['id'=>'12-111-2', 'username'=>'xyz', 'password'=>'test'];
+        return view('post.approve')->with('std', $user);
+    }
+
+    function approval(HttpRequest $req, $id){
+
+        $user = product::find($id);
+
+        $user->status = 1;
+
+        $user->save();
+        return redirect()->route('post.index');
+    }
+    /*function delete($id){
+
+        //find student form array
+        $user = product::find($id);
+        //$std = ['id'=>'12-111-2', 'username'=>'xyz', 'password'=>'test'];
+        return view('product.delete')->with('std', $user);
+    }*/
 }

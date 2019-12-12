@@ -51,6 +51,9 @@ Route::group(['middleware'=>['ver']],function(){
     Route::post('/post/edit/{id}', 'PostController@update')->name('post.update');
 
 
+    Route::get('/post/approve/{id}', 'PostController@approve')->name('post.approve');
+    Route::post('/post/approve/{id}', 'PostController@approval')->name('post.approval');
+
     Route::get('/student/delete/{id}', 'StudentController@delete')->name('student.delete');
     Route::post('/student/delete/{id}', 'StudentController@destroy')->name('student.destroy');
 
