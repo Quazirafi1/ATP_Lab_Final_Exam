@@ -11,7 +11,8 @@
 	<table border="1">
 		<tr>
 			<td>ID</td>
-			<td>USERNAME</td>
+            <td>USERNAME</td>
+            <td>TYPE</td>
 			<td>ACTION</td>
 		</tr>
 
@@ -19,11 +20,23 @@
 		<tr>
 			<td>{{$s->userId}}</td>
 			<td>{{$s->username}}</td>
-			<td>
+            <td>
+                @if($s->type == '2')
+                    Scout
+                @elseif ($s->type == '3')
+                    General User
+                @else
+                    Admin
+                @endif
+            </td>
+            <td>
 				<a href="{{route('student.edit', $s->userId)}}">Edit</a> |
+                @if($s->userId != '1234')
 				<a href="{{route('student.delete', $s->userId)}}">Delete</a> |
+                @endif
 				<a href="{{route('student.details', $s->userId)}}">Details</a>
 			</td>
+
 		</tr>
 	@endforeach
 
