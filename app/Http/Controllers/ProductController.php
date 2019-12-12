@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\product;
+use App\request;
+
 use Illuminate\Support\Facades\DB;
-use Illuminate\Http\Request;
+use Illuminate\Http\Request as HttpRequest;
 use Validator;
 
 class ProductController extends Controller
@@ -14,7 +16,7 @@ class ProductController extends Controller
         return view('product.addproduct');
     }
 
-    function insert(Request $req){
+    function insert(HttpRequest $req){
 
         $req->validate([
             'title'=>'required',
@@ -48,7 +50,7 @@ class ProductController extends Controller
         return view('product.index')->with('users', $users);
     }
 
-    function edit(Request $req, $id){
+    function edit(HttpRequest $req, $id){
 
         //find student form array
         $user = product::find($id);
@@ -56,7 +58,7 @@ class ProductController extends Controller
         return view('product.edit')->with('std', $user);
     }
 
-    function update(Request $req, $id){
+    /*function update(Request $req, $id){
 
         $user = product::find($id);
         $user->name = $req->name;
@@ -64,6 +66,32 @@ class ProductController extends Controller
         $user->price = $req->price;
 
         $user->save();
+
+        return redirect()->route('product.index');
+    }*/
+    function update(HttpRequest $req, $id){
+
+        $req->validate([
+            'title'=>'required',
+            'price'=>'required',
+            'medium'=>'required',
+            'country'=>'required',
+            'history'=>'required'
+        ]);
+
+        $user = new request();
+        $user->request_id = $id;
+        $user->title = $req->title;
+        $user->medium = $req->medium;
+        $user->country = $req->country;
+        $user->history = $req->history;
+        $user->price = $req->price;
+
+        $user->save();
+
+        $users = product::find($id);
+        $users->request = 1;
+        $users->save();
 
         return redirect()->route('product.index');
     }

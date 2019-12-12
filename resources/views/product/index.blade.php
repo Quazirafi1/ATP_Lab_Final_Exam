@@ -32,12 +32,11 @@
                 @if($s->request==0)
                     No Request pending
                 @else
-                    Live
+                    Request Pending
                 @endif
             </td>
             <td>
-                <a href="{{route('product.edit', $s->id)}}">Edit</a> |
-                <a href="{{route('product.delete', $s->id)}}">Delete</a>
+                <a href="{{route('product.edit', $s->id)}}">Edit Post</a>
             </td>
         </tr>
     @endforeach
