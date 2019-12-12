@@ -20,6 +20,9 @@ Route::get('/login', 'LoginController@index');
 Route::post('/login', 'LoginController@verify');
 Route::get('/logout', 'LogoutController@index');
 
+Route::get('/homepage', 'GeneralController@index');
+
+
 Route::get('/homeuser', ['as'=>'home.index2','uses'=>'HomeController@index2']);
 
 //Route::get('/admin/userList', 'StudentController@index')->name('student.index');
