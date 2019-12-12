@@ -5,8 +5,8 @@
 </head>
 <body>
 <h1>General Page</h1>
-<a href="/login">login</a>
-
+<a href="{{route('home.index3')}}">Back</a> |
+<a href="/logout">logout</a>
 <table border="1">
     <tr>
         <td>Title</td>

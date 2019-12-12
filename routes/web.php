@@ -26,6 +26,9 @@ Route::get('/homepage', 'GeneralController@index');
 Route::get('/general/all', ['as'=>'general.all','uses'=>'GeneralController@all']);
 
 
+Route::get('/general/edit/{id}', 'GeneralController@edit2')->name('general.edit2');
+Route::post('/general/edit/{id}', 'GeneralController@update2')->name('general.update2');
+
 Route::get('/homeuser', ['as'=>'home.index2','uses'=>'HomeController@index2']);
 Route::get('/homeuser3', ['as'=>'home.index3','uses'=>'HomeController@index3']);
 
