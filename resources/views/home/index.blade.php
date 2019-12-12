@@ -4,9 +4,10 @@
 	<title>Home page</title>
 </head>
 <body>
-	<h1>Welcome Home! {{session('id')}}</h1>
+	<h1>Welcome Admin!</h1>
+    <h2>ID: {{session('id')}}</h2>
 
-	<a href="{{route('student.add')}}">Add user</a> |
+	<a href="{{route('student.add')}}">Register</a> |
 	<a href="{{route('student.index')}}">UserList</a> |
     <a href="{{ route('livesearch.index') }} ">View User Information </a> |
 	<a href="/logout">logout</a>

@@ -30,11 +30,11 @@
                 @endif
             </td>
             <td>
-				<a href="{{route('student.edit', $s->userId)}}">Edit</a> |
+				<a href="{{route('student.edit', $s->userId)}}">Update</a> |
                 @if($s->userId != '1234')
 				<a href="{{route('student.delete', $s->userId)}}">Delete</a> |
                 @endif
-				<a href="{{route('student.details', $s->userId)}}">Details</a>
+				<a href="{{route('student.details', $s->userId)}}">View Details</a>
 			</td>
 
 		</tr>

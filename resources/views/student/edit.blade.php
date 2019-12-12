@@ -4,7 +4,7 @@
 	<title>Home page</title>
 </head>
 <body>
-	<h1>Edit User</h1>
+	<h1>Update Information</h1>
 	<a href="{{route('student.index')}}">Back</a> |
 	<a href="/logout">logout</a>
 
