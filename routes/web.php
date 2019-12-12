@@ -23,7 +23,7 @@ Route::get('/logout', 'LogoutController@index');
 Route::get('/homepage', 'GeneralController@index');
 
 
-//Route::get('/general/all', ['as'=>'general.all','uses'=>'GeneralController@all']);
+Route::get('/general/all', ['as'=>'general.all','uses'=>'GeneralController@all']);
 
 
 Route::get('/homeuser', ['as'=>'home.index2','uses'=>'HomeController@index2']);

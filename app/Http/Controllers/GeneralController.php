@@ -15,4 +15,12 @@ class GeneralController extends Controller
 
         return view('general.index')->with('users', $users);
     }
+
+    function all(){
+
+        //$users = User::all();
+        $users = DB::table('products')->get();
+
+        return view('general.index1')->with('users', $users);
+    }
 }
