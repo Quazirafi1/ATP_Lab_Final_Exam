@@ -40,7 +40,12 @@ class VerifyUser
         if($check==1)
         {
             return $next($request);
-        }else {
+        }
+        elseif ($check==3)
+        {
+            return redirect()->route('home.index3');
+        }
+        else {
             //return redirect()->route('/login');
             //echo("kkk");
             return redirect()->route('home.index2');

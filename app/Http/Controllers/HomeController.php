@@ -49,6 +49,27 @@ class HomeController extends Controller
         }
 
     }
+
+    function index3(Request $request){
+
+
+        $value = $request->session()->get('id');
+
+        $user = User::find($value);
+
+        if($request->session()->has('id')){
+            //$users = User::all();
+            //$kangaroo=session('id')
+            //echo "kasmd";
+            //$user = User::where('userId', $kangaroo)
+            //       					->get();
+            $usernamesend=$user->username;
+            return view('home.index3', compact('id','usernamesend'));
+        }else{
+            return redirect('/login');
+        }
+
+    }
 }
 
 
