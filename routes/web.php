@@ -41,8 +41,15 @@ Route::group(['middleware'=>['ver']],function(){
     Route::get('/student/userList', ['as'=>'student.index','uses'=>'StudentController@index']);
     Route::get('/student/details/{id}', 'StudentController@details')->name('student.details');
 
+    Route::get('/post/list', ['as'=>'post.index','uses'=>'PostController@index']);
+    //Route::get('/student/details/{id}', 'StudentController@details')->name('student.details');
+
     Route::get('/student/edit/{id}', 'StudentController@edit')->name('student.edit');
     Route::post('/student/edit/{id}', 'StudentController@update')->name('student.update');
+
+    Route::get('/post/edit/{id}', 'PostController@edit')->name('post.edit');
+    Route::post('/post/edit/{id}', 'PostController@update')->name('post.update');
+
 
     Route::get('/student/delete/{id}', 'StudentController@delete')->name('student.delete');
     Route::post('/student/delete/{id}', 'StudentController@destroy')->name('student.destroy');

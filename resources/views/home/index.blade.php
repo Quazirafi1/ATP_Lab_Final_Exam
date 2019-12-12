@@ -8,8 +8,8 @@
     <h2>ID: {{session('id')}}</h2>
 
 	<a href="{{route('student.add')}}">Register</a> |
-	<a href="{{route('student.index')}}">UserList</a> |
-    <a href="{{ route('livesearch.index') }} ">View User Information </a> |
+	<a href="{{route('student.index')}}">User List</a> |
+    <a href="{{route('post.index')}}">Post Manipulation</a> |
 	<a href="/logout">logout</a>
 
 	<table>
