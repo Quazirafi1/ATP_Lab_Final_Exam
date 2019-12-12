@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\product;
 use App\request;
-
+use App\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request as HttpRequest;
 use Validator;
@@ -114,5 +114,26 @@ class ProductController extends Controller
             return view('product.delete')->with('std', $user);;
         }
         //return redirect()->route('student.index');
+    }
+
+    function edit2(HttpRequest $req, $id){
+
+        //find student form array
+        $user = User::find($id);
+        //$std = ['id'=>'12-111-2', 'username'=>'xyz', 'password'=>'test'];
+        return view('product.edit2')->with('std', $user);
+    }
+
+    function update2(HttpRequest $req, $id){
+
+        $user = User::find($id);
+        $user->username = $req->username;
+        $user->name = $req->name;
+        $user->contact = $req->contact;
+        $user->password = $req->password;
+
+        $user->save();
+
+        return redirect()->route('home.index2');
     }
 }

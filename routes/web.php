@@ -32,6 +32,10 @@ Route::get('/product/productList', ['as'=>'product.index','uses'=>'ProductContro
 Route::get('/product/edit/{id}', 'ProductController@edit')->name('product.edit');
 Route::post('/product/edit/{id}', 'ProductController@update')->name('product.update');
 
+Route::get('/scout/edit/{id}', 'ProductController@edit2')->name('product.edit2');
+Route::post('/scout/edit/{id}', 'ProductController@update2')->name('product.update2');
+
+
 Route::get('/product/delete/{id}', 'ProductController@delete')->name('product.delete');
 Route::post('/product/delete/{id}', 'ProductController@destroy')->name('product.destroy');
 
