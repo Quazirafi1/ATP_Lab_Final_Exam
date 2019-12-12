@@ -72,11 +72,42 @@ class PostController extends Controller
         $user->save();
         return redirect()->route('post.index');
     }
-    /*function delete($id){
+    function delete($id){
 
         //find student form array
         $user = product::find($id);
         //$std = ['id'=>'12-111-2', 'username'=>'xyz', 'password'=>'test'];
         return view('product.delete')->with('std', $user);
-    }*/
+    }
+
+    function destroy($id){
+
+        //delete student from array and send the updated array in userlist
+        $user = product::find($id);
+        if($user->request==0)
+        {
+            if($user->delete()){
+                return redirect()->route('product.index');
+            }else{
+                return view('post.delete')->with('std', $user);;
+            }
+        }
+        else
+        {
+            if($user->delete()){
+                $users = request::find($id);
+                if($users->delete())
+                {
+                    return redirect()->route('post.index');
+                }
+                else
+                {
+                    return view('post.delete')->with('std', $user);
+                }
+            }else{
+                return view('post.delete')->with('std', $user);
+            }
+        }
+        //return redirect()->route('student.index');
+    }
 }

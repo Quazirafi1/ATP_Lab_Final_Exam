@@ -38,6 +38,7 @@
             <td>
                 <a href="{{route('post.edit', $s->id)}}">Handle Edit Request</a> |
                 <a href="{{route('post.approve', $s->id)}}">Handle Live Request</a>
+                <a href="{{route('post.delete', $s->id)}}">Delete</a>
             </td>
         </tr>
     @endforeach
